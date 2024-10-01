@@ -10,8 +10,7 @@ public class Book
 
     public Book(string title, string author, string spell)
     {
-        ++CountOfBooks;
-        Id = CountOfBooks;
+        Id = ++CountOfBooks;
         Title = title;
         Author = author;
         Spell = spell;      
