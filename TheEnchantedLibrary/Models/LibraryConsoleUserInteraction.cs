@@ -17,4 +17,28 @@ public class LibraryConsoleUserInteraction : ILibraryUserInteraction
         }
         Console.WriteLine();
     }
+
+    public Book PromptForDetails()
+    {
+        Console.WriteLine("Add a book to the library.");
+        var name = ReadInput("Enter the name of the book: ");
+        var author = ReadInput("Enter the author: ");
+        var spell = ReadInput("Add a magic spell: ");
+
+        return new Book(name, author, spell);
+    }
+
+    private string ReadInput(string prompt)
+    {
+        string? input;
+
+        do
+        {
+            Console.Write(prompt);
+            input = Console.ReadLine();
+        }
+        while (string.IsNullOrEmpty(input));
+
+        return input;
+    }
 }

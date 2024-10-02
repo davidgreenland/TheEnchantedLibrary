@@ -20,4 +20,12 @@ public class Library
     {
         _libraryUserInteraction.PrintBooks(this);
     }
+
+    public void AddBook()
+    {
+        var newBook = _libraryUserInteraction.PromptForDetails();
+        Catalogue.Add(newBook);
+        Console.WriteLine($"Book {newBook.Id} added! {Environment.NewLine}");
+
+    }
 }

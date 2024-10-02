@@ -6,3 +6,5 @@ var libraryStartsEmpty = new Library(new LibraryConsoleUserInteraction());
 var libraryStartsWithBooks = new Library([book1, book2], new LibraryConsoleUserInteraction());
 
 libraryStartsWithBooks.ListBooks();
+libraryStartsWithBooks.AddBook();
+libraryStartsWithBooks.ListBooks();
