@@ -2,11 +2,10 @@
 
 public class Library
 {
-    public ICollection<Book> Catalogue { get; private set; }
+    public ICollection<Book> Catalogue { get; private set; } = [];
 
     public Library()
     {
-        Catalogue = [];
     }
 
     public Library(List<Book> books)
