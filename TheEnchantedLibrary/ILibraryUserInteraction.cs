@@ -4,6 +4,6 @@ namespace TheEnchantedLibrary;
 
 public interface ILibraryUserInteraction
 {
-    void PrintBooks(Library library);
-    Book PromptForDetails();
+    void PrintMessage(string message);
+    void PrintBooks(ICollection<Book> books);
 }

@@ -1,31 +1,27 @@
 ﻿namespace TheEnchantedLibrary.Models;
 
-public class Library
+public class Library : ILibrary
 {
-    private readonly ILibraryUserInteraction _libraryUserInteraction;
-    public ICollection<Book> Catalogue { get; private set; } = [];
+    private ICollection<Book> Catalogue = [];
 
-    public Library(List<Book> books, ILibraryUserInteraction libraryUserInteraction)
+    public Library()
     {
-        _libraryUserInteraction = libraryUserInteraction;
+    }
+
+    public Library(List<Book> books)
+    {
         Catalogue = books;
     }
 
-    public Library(ILibraryUserInteraction libraryUserInteraction)
+    public ICollection<Book> List()
     {
-        _libraryUserInteraction = libraryUserInteraction;
+        return Catalogue;
     }
 
-    public void ListBooks()
+    public void AddBook(Book book)
     {
-        _libraryUserInteraction.PrintBooks(this);
-    }
-
-    public void AddBook()
-    {
-        var newBook = _libraryUserInteraction.PromptForDetails();
-        Catalogue.Add(newBook);
-        Console.WriteLine($"Book {newBook.Id} added! {Environment.NewLine}");
+        Catalogue.Add(book);
+        Console.WriteLine($"Book {book.Id} added! {Environment.NewLine}");
 
     }
 }
