@@ -4,5 +4,5 @@ namespace TheEnchantedLibrary;
 
 public interface ILibrary
 {
-    ICollection<Book> List();
+    ICollection<Book> GetBooks();
 }
