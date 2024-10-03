@@ -2,7 +2,7 @@
 
 public class Library : ILibrary
 {
-    private ICollection<Book> Catalogue = [];
+    private ICollection<Book> _books = [];
 
     public Library()
     {
@@ -10,12 +10,12 @@ public class Library : ILibrary
 
     public Library(List<Book> books)
     {
-        Catalogue = books;
+        _books = books;
     }
 
-    public ICollection<Book> List()
+    public ICollection<Book> GetBooks()
     {
-        return Catalogue;
+        return _books;
     }
 
     public void AddBook(Book book)
