@@ -2,7 +2,7 @@
 
 public class Library
 {
-    public ICollection<Book> Catalogue { get; private set; } = [];
+    private ICollection<Book> Catalogue = [];
 
     public Library()
     {
