@@ -15,5 +15,6 @@ public class EnchantedLibraryApp
     {
         _libraryUserInteraction.PrintMessage("Welcome to the Enchanted Library");
         _libraryUserInteraction.PrintBooks(_library.GetBooks());
+        _libraryUserInteraction.GetUserChoice();
     }
 }

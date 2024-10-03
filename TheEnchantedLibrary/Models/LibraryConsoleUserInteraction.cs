@@ -2,9 +2,35 @@
 
 public class LibraryConsoleUserInteraction : ILibraryUserInteraction
 {
+    private readonly char[] _options = ['A', 'L', 'R', 'S', 'E'];
+
     public void PrintMessage(string message)
     {
         Console.WriteLine(message);
+    }
+
+    public char GetUserChoice()
+    {
+        char choice;
+        do
+        {
+            ShowOptions();
+            choice = Console.ReadKey().KeyChar;
+            Console.WriteLine();
+        }
+        while (!_options.Contains(Char.ToUpper(choice)));
+
+        return choice;
+    }
+
+    private void ShowOptions()
+    {
+        Console.WriteLine("[A]dd a new book.");
+        Console.WriteLine("[L]ist all books.");
+        Console.WriteLine("[R]emove a book.");
+        Console.WriteLine("[S]earch for a book");
+        Console.WriteLine("[E]xit");
+        Console.Write("Choose an option:");
     }
 
     public void PrintBooks(ICollection<Book> books)

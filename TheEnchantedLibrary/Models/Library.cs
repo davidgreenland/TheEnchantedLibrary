@@ -20,11 +20,11 @@ public class Library : ILibrary
 
     public void AddBook(Book book)
     {
-        Catalogue.Add(book);
+        _books.Add(book);
     }
 
     public void RemoveBook(Book book)
     {
-        Catalogue.Remove(book);
+        _books.Remove(book);
     }
 }
