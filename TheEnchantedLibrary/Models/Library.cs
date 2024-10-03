@@ -1,9 +1,9 @@
 ﻿namespace TheEnchantedLibrary.Models;
 
-public class Library
+public class Library : ILibrary
 {
-    private ICollection<Book> Catalogue = [];
     private readonly ILibraryUserInteraction _libraryUserInteraction;
+    private ICollection<Book> Catalogue = [];
 
     public Library(List<Book> books, ILibraryUserInteraction libraryUserInteraction)
     {
