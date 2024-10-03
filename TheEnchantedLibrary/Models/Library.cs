@@ -2,8 +2,8 @@
 
 public class Library
 {
+    private ICollection<Book> Catalogue = [];
     private readonly ILibraryUserInteraction _libraryUserInteraction;
-    public ICollection<Book> Catalogue { get; private set; } = [];
 
     public Library(List<Book> books, ILibraryUserInteraction libraryUserInteraction)
     {
