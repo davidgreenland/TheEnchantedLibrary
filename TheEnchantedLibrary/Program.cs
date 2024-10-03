@@ -6,3 +6,9 @@ var enchantedLibrary = new Library([new Book("Dusty Old Book", "Ernesto Basile",
 
 var enchantedLibraryApp = new EnchantedLibraryApp(enchantedLibrary, new LibraryConsoleUserInteraction());
 enchantedLibraryApp.StartApp();
+
+enchantedLibrary.AddBook(new Book("book3", "dhdhdh", "Magic spell"));
+enchantedLibraryApp.StartApp();
+
+var bookToRemove = enchantedLibrary.List().FirstOrDefault(x => x.Title == "book");
+Console.WriteLine(bookToRemove?.Title ?? "Not Found");

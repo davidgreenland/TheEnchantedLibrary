@@ -21,7 +21,10 @@ public class Library : ILibrary
     public void AddBook(Book book)
     {
         Catalogue.Add(book);
-        Console.WriteLine($"Book {book.Id} added! {Environment.NewLine}");
+    }
 
+    public void RemoveBook(Book book)
+    {
+        Catalogue.Remove(book);
     }
 }
