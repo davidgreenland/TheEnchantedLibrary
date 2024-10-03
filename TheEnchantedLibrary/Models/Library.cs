@@ -2,22 +2,20 @@
 
 public class Library : ILibrary
 {
-    private readonly ILibraryUserInteraction _libraryUserInteraction;
     private ICollection<Book> Catalogue = [];
 
-    public Library(List<Book> books, ILibraryUserInteraction libraryUserInteraction)
+    public Library()
     {
-        _libraryUserInteraction = libraryUserInteraction;
+    }
+
+    public Library(List<Book> books)
+    {
         Catalogue = books;
     }
 
-    public Library(ILibraryUserInteraction libraryUserInteraction)
+    public ICollection<Book> List()
     {
-        _libraryUserInteraction = libraryUserInteraction;
-    }
-
-    public void ListBooks()
-    {
-        _libraryUserInteraction.PrintBooks(this);
+        Console.WriteLine("Printing books");
+        return Catalogue;
     }
 }

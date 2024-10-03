@@ -1,6 +1,8 @@
-﻿namespace TheEnchantedLibrary;
+﻿using TheEnchantedLibrary.Models;
+
+namespace TheEnchantedLibrary;
 
 public interface ILibrary
 {
-    void ListBooks();
+    ICollection<Book> List();
 }
