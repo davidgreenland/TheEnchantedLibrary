@@ -12,7 +12,7 @@ public class ListBooks : LibraryAction
         _libraryUserInteraction = libraryUserInteraction;
     }
 
-    public override void Execute(Library library)
+    public override void Execute(ILibrary library)
     {
 
         var books = library.GetBooks();

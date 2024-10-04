@@ -6,5 +6,5 @@ public abstract class LibraryAction : ILibraryAction
 {
     public abstract string Message { get; }
 
-    public abstract void Execute(Library library);
+    public abstract void Execute(ILibrary library);
 }

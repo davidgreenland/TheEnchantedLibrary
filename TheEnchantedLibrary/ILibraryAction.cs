@@ -4,5 +4,5 @@ namespace TheEnchantedLibrary;
 
 public interface ILibraryAction
 {
-    void Execute(Library library);
+    void Execute(ILibrary library);
 }

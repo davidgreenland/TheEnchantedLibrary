@@ -4,11 +4,11 @@ namespace TheEnchantedLibrary;
 
 public class EnchantedLibraryApp
 {
-    private readonly Library _library;
+    private readonly ILibrary _library;
     private readonly LibraryActions _libraryActions;
     private readonly ILibraryUserInteraction _libraryUserInteraction;
 
-    public EnchantedLibraryApp(LibraryActions actions, ILibraryUserInteraction libraryUserInteraction, Library library)
+    public EnchantedLibraryApp(LibraryActions actions, ILibraryUserInteraction libraryUserInteraction, ILibrary library)
     {
         _libraryActions = actions;
         _libraryUserInteraction = libraryUserInteraction;
