@@ -42,6 +42,7 @@ public class EnchantedLibraryApp
 
     private void ShowOptions()
     {
+        _libraryUserInteraction.PrintMessage("");
         foreach (var item in _libraryActions.Actions)
         {
             _libraryUserInteraction.PrintMessage(item.Value.Message);

@@ -14,6 +14,6 @@ public class ExitApp : LibraryAction
 
     public override void Execute(Library library)
     {
-        _libraryUserInteraction.PrintMessage("Goodbye.");
+        _libraryUserInteraction.PrintMessage("|| Goodbye. :-) ||");
     }
 }
