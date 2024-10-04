@@ -2,36 +2,42 @@
 
 public class LibraryConsoleUserInteraction : ILibraryUserInteraction
 {
-    private readonly char[] _options = ['A', 'L', 'R', 'S', 'E'];
-
     public void PrintMessage(string message)
     {
         Console.WriteLine(message);
     }
 
-    public char GetUserChoice()
+    public char GetChar(string prompt)
     {
-        char choice;
+        Console.Write(prompt);
+        var input = Char.ToUpper(Console.ReadKey().KeyChar);
+        Console.WriteLine(Environment.NewLine);
+        return input;
+    }
+
+    public string ReadInput(string prompt)
+    {
+        string? input;
+
         do
         {
-            ShowOptions();
-            choice = Console.ReadKey().KeyChar;
-            Console.WriteLine();
+            Console.Write(prompt);
+            input = Console.ReadLine();
         }
-        while (!_options.Contains(Char.ToUpper(choice)));
+        while (string.IsNullOrEmpty(input));
 
-        return choice;
+        return input;
     }
 
-    private void ShowOptions()
-    {
-        Console.WriteLine("[A]dd a new book.");
-        Console.WriteLine("[L]ist all books.");
-        Console.WriteLine("[R]emove a book.");
-        Console.WriteLine("[S]earch for a book");
-        Console.WriteLine("[E]xit");
-        Console.Write("Choose an option:");
-    }
+    //private void ShowOptions()
+    //{
+    //    Console.WriteLine("[A]dd a new book.");
+    //    Console.WriteLine("[L]ist all books.");
+    //    Console.WriteLine("[R]emove a book.");
+    //    Console.WriteLine("[S]earch for a book");
+    //    Console.WriteLine("[E]xit");
+    //    Console.Write("Choose an option:");
+    //}
 
     public void PrintBooks(ICollection<Book> books)
     {
@@ -52,29 +58,5 @@ public class LibraryConsoleUserInteraction : ILibraryUserInteraction
     private void PrintBook(Book book) 
     {
         Console.WriteLine(String.Format("{0,4} | {1,-40} | {2,-20} | {3}", book.Id, book.Title, book.Author, book.Spell));
-    }
-
-    public Book PromptForDetails()
-    {
-        Console.WriteLine("Add a book to the library.");
-        var name = ReadInput("Enter the name of the book: ");
-        var author = ReadInput("Enter the author: ");
-        var spell = ReadInput("Add a magic spell: ");
-
-        return new Book(name, author, spell);
-    }
-
-    private string ReadInput(string prompt)
-    {
-        string? input;
-
-        do
-        {
-            Console.Write(prompt);
-            input = Console.ReadLine();
-        }
-        while (string.IsNullOrEmpty(input));
-
-        return input;
     }
 }

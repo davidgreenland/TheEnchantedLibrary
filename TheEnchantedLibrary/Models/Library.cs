@@ -3,6 +3,7 @@
 public class Library : ILibrary
 {
     private ICollection<Book> _books = [];
+    private int _bookIdCounter = 0;
 
     public Library()
     {
@@ -18,9 +19,10 @@ public class Library : ILibrary
         return _books;
     }
 
-    public void AddBook(Book book)
+    public void AddBook(string title, string author, string spell)
     {
-        _books.Add(book);
+        _bookIdCounter++;
+        _books.Add(new Book(_bookIdCounter, title, author, spell));
     }
 
     public void RemoveBook(Book book)
