@@ -17,11 +17,29 @@ public class EnchantedLibraryApp
 
     public void StartApp()
     {
+        char userChoice;
         _libraryUserInteraction.PrintMessage("Welcome to the Enchanted Library");
-        ShowOptions();
-        var userChoice = GetUserChoice();
-        _libraryActions.UseAction(userChoice, _library);
+        do
+        {
+            userChoice = GetUserChoice();
+            _libraryActions.UseAction(userChoice, _library);
+        } 
+        while (userChoice != 'X');
+
         _libraryUserInteraction.PrintBooks(_library.GetBooks());
+    }
+
+    private char GetUserChoice()
+    {
+        char userChoice;
+        do
+        {
+            ShowOptions();
+            userChoice = _libraryUserInteraction.GetChar("Choose an option:");
+        }
+        while (!_libraryActions.Actions.ContainsKey(userChoice));
+
+        return userChoice;
     }
 
     private void ShowOptions()
@@ -30,17 +48,5 @@ public class EnchantedLibraryApp
         {
             _libraryUserInteraction.PrintMessage(item.Value.Message);
         }
-    }
-
-    private char GetUserChoice()
-    {
-        char userChoice;
-        do
-        {
-            userChoice = _libraryUserInteraction.GetChar("Choose an option:");
-        }
-        while (!_libraryActions.Actions.ContainsKey(userChoice));
-
-        return userChoice;
     }
 }
