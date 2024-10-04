@@ -8,7 +8,7 @@ public class EnchantedLibraryApp
     private readonly LibraryActions _libraryActions;
     private readonly ILibraryUserInteraction _libraryUserInteraction;
 
-    public EnchantedLibraryApp(LibraryActions actions, ILibraryUserInteraction libraryUserInteraction, Library library)
+    public EnchantedLibraryApp(LibraryActions actions, ILibraryUserInteraction libraryUserInteraction, ILibrary library)
     {
         _libraryActions = actions;
         _libraryUserInteraction = libraryUserInteraction;
