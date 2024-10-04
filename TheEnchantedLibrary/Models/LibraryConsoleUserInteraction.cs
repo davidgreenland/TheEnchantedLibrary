@@ -29,16 +29,6 @@ public class LibraryConsoleUserInteraction : ILibraryUserInteraction
         return input;
     }
 
-    //private void ShowOptions()
-    //{
-    //    Console.WriteLine("[A]dd a new book.");
-    //    Console.WriteLine("[L]ist all books.");
-    //    Console.WriteLine("[R]emove a book.");
-    //    Console.WriteLine("[S]earch for a book");
-    //    Console.WriteLine("[E]xit");
-    //    Console.Write("Choose an option:");
-    //}
-
     public void PrintBooks(ICollection<Book> books)
     {
         var tableHeader = String.Format("{0,4} | {1,-40} | {2,-20} | {3}", "ID", "Title", "Author", "Spell");

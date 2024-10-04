@@ -25,8 +25,6 @@ public class EnchantedLibraryApp
             _libraryActions.UseAction(userChoice, _library);
         } 
         while (userChoice != 'X');
-
-        _libraryUserInteraction.PrintBooks(_library.GetBooks());
     }
 
     private char GetUserChoice()

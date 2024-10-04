@@ -2,7 +2,7 @@
 
 public class ExitApp : LibraryAction
 {
-    public override string Message { get; } = "E[x]it application";
+    public override string Message { get; } = "E[x]it application" + Environment.NewLine;
 
     private readonly ILibraryUserInteraction _libraryUserInteraction;
 
