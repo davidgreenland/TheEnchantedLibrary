@@ -12,7 +12,7 @@ public class AddBook : LibraryAction
         _libraryUserInteraction = libraryUserInteraction;
     }
 
-    public override void Execute(Library library)
+    public override void Execute(ILibrary library)
     {
         _libraryUserInteraction.PrintMessage("Add a book to the library.");
         var name = _libraryUserInteraction.ReadInput("Enter the name of the book: ");

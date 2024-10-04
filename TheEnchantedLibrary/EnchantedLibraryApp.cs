@@ -4,7 +4,7 @@ namespace TheEnchantedLibrary;
 
 public class EnchantedLibraryApp
 {
-    private readonly Library _library;
+    private readonly ILibrary _library;
     private readonly LibraryActions _libraryActions;
     private readonly ILibraryUserInteraction _libraryUserInteraction;
 

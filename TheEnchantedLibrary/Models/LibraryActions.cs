@@ -9,7 +9,7 @@ public class LibraryActions
         Actions = actions;
     }
 
-    public void UseAction(char key, Library library)
+    public void UseAction(char key, ILibrary library)
     {
         Actions[key].Execute(library);
     }
