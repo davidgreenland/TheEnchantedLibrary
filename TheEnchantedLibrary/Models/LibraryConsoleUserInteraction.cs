@@ -7,7 +7,7 @@ public class LibraryConsoleUserInteraction : ILibraryUserInteraction
         Console.WriteLine(message);
     }
 
-    public char GetChar(string prompt)
+    public char GetUserChoice(string prompt)
     {
         Console.Write(prompt);
         var input = Char.ToUpper(Console.ReadKey().KeyChar);
@@ -28,6 +28,10 @@ public class LibraryConsoleUserInteraction : ILibraryUserInteraction
 
         return input;
     }
+
+    public void ClearScreen() => Console.Clear();
+
+    public void WaitForUser() => Console.ReadKey();
 
     public void PrintBooks(ICollection<Book> books)
     {

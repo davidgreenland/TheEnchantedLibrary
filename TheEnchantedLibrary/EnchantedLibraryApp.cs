@@ -1,4 +1,5 @@
-﻿using TheEnchantedLibrary.Models;
+﻿using TheEnchantedLibrary.Helpers;
+using TheEnchantedLibrary.Models;
 
 namespace TheEnchantedLibrary;
 
@@ -19,23 +20,26 @@ public class EnchantedLibraryApp
     {
         char userChoice;
         _libraryUserInteraction.PrintMessage("Welcome to the Enchanted Library");
+        _libraryUserInteraction.PrintMessage("Press any key to begin");
+        _libraryUserInteraction.WaitForUser();
+
         do
         {
+            _libraryUserInteraction.ClearScreen();
             userChoice = GetUserChoice();
-            _libraryActions.UseAction(userChoice, _library);
+
+            if (_libraryActions.Actions.ContainsKey(userChoice)) 
+            { 
+                _libraryActions.UseAction(userChoice, _library);
+            }
         } 
-        while (userChoice != 'X');
+        while (userChoice != ActionKey.EXIT_APP);
     }
 
     private char GetUserChoice()
     {
-        char userChoice;
-        do
-        {
-            ShowOptions();
-            userChoice = _libraryUserInteraction.GetChar("Choose an option:");
-        }
-        while (!_libraryActions.Actions.ContainsKey(userChoice));
+        ShowOptions();
+        var userChoice = _libraryUserInteraction.GetUserChoice("Choose an option: ");
 
         return userChoice;
     }
