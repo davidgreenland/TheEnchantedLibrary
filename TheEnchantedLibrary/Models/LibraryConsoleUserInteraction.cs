@@ -47,13 +47,12 @@ public class LibraryConsoleUserInteraction : ILibraryUserInteraction
 
     private void PrintTableHeader()
     {
-        Console.WriteLine(String.Format("{0,4} | {1,-40} | {2,-20} | {3}", "ID", "Title", "Author", "Spell"));
-        Console.WriteLine(String.Format("{0,4} | {1,-40} | {2,-20} | {3}",
-            new string('-', 4), new string('-', 40), new string('-', 20), new string('-', 30)));
+        Console.WriteLine($"{"ID",4} | {"Title",-40} | {"Author",-20} | Spell");
+        Console.WriteLine($"{new string('-', 4),4} | {new string('-', 40),-40} | {new string('-', 20),-20} | {new string('-', 30)}");
     }
 
     private void PrintBook(Book book)
     {
-        Console.WriteLine(String.Format("{0,4} | {1,-40} | {2,-20} | {3}", book.Id, book.Title, book.Author, book.Spell));
+        Console.WriteLine($"{book.Id,4} | {book.Title,-40} | {book.Author,-20} | {book.Spell}");
     }
 }
