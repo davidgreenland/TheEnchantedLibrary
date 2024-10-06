@@ -1,8 +1,8 @@
 ﻿namespace TheEnchantedLibrary.Models;
 
-public class Library
+public class Library : ILibrary
 {
-    private ICollection<Book> Catalogue = [];
+    private ICollection<Book> _books = [];
 
     public Library()
     {
@@ -10,6 +10,11 @@ public class Library
 
     public Library(List<Book> books)
     {
-        Catalogue = books;
+        _books = books;
+    }
+
+    public ICollection<Book> GetBooks()
+    {
+        return _books;
     }
 }
