@@ -29,7 +29,8 @@ public class EnchantedLibraryApp
             userChoice = GetUserChoice();
 
             if (_libraryActions.Actions.ContainsKey(userChoice)) 
-            { 
+            {
+                _libraryUserInteraction.ClearScreen();
                 _libraryActions.UseAction(userChoice, _library);
             }
         } 
@@ -40,13 +41,11 @@ public class EnchantedLibraryApp
     {
         ShowOptions();
         var userChoice = _libraryUserInteraction.GetUserChoice("Choose an option: ");
-
         return userChoice;
     }
 
     private void ShowOptions()
     {
-        _libraryUserInteraction.PrintMessage("");
         foreach (var item in _libraryActions.Actions)
         {
             _libraryUserInteraction.PrintMessage(item.Value.Message);

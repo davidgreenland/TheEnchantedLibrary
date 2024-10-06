@@ -6,6 +6,6 @@ namespace TheEnchantedLibrary;
 public interface ILibrary
 {
     ICollection<Book> GetBooks();
-    void AddBook(string title, string author, string spell);
+    Book AddBook(string title, string author, string spell);
     void RemoveBook(Book book);
 }

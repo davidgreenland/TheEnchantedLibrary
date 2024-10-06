@@ -35,14 +35,14 @@ public class LibraryConsoleUserInteraction : ILibraryUserInteraction
 
     public void PrintBooks(ICollection<Book> books)
     {
-        Console.WriteLine($"Here is a list of the books in the library");
         PrintTableHeader();
 
         foreach (var book in books)
         {
             PrintBook(book);
         }
-        Console.WriteLine();
+        Console.Write(Environment.NewLine + "Press any key to continue.");
+        Console.ReadKey();
     }
 
     private void PrintTableHeader()

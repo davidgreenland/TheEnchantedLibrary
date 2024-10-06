@@ -2,7 +2,7 @@
 
 public class Library : ILibrary
 {
-    private ICollection<Book> _books = [];
+    private readonly ICollection<Book> _books = [];
     private int _bookIdCounter;
 
     public Library()
@@ -14,9 +14,11 @@ public class Library : ILibrary
         return _books;
     }
 
-    public void AddBook(string title, string author, string spell)
+    public Book AddBook(string title, string author, string spell)
     {
-        _books.Add(new Book(GetNewBookId(), title, author, spell));
+        var book = new Book(GetNewBookId(), title, author, spell);
+        _books.Add(book);
+        return book;
     }
 
     public void RemoveBook(Book book)

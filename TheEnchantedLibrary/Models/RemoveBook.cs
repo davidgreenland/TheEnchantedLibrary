@@ -13,7 +13,7 @@ public class RemoveBook : LibraryAction
         _libraryUserInteraction = libraryUserInteraction;
     }
 
-    public override void Execute(Library library)
+    public override void Execute(ILibrary library)
     {
         _libraryUserInteraction.PrintMessage("Remove book.");
         var title = _libraryUserInteraction.ReadInput("Enter the title of the book to remove: ");
