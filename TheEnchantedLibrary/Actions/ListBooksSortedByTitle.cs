@@ -3,13 +3,13 @@ using TheEnchantedLibrary.Services.Interfaces;
 
 namespace TheEnchantedLibrary.Actions;
 
-public class ListBooksSortedByAuthor : LibraryAction
+public class ListBooksSortedByTitle : LibraryAction
 {
     public override string Message { get; } = "[L]ist all books.";
 
     private readonly ILibraryUserInteraction _libraryUserInteraction;
 
-    public ListBooksSortedByAuthor(ILibraryUserInteraction libraryUserInteraction)
+    public ListBooksSortedByTitle(ILibraryUserInteraction libraryUserInteraction)
     {
 
         _libraryUserInteraction = libraryUserInteraction;
@@ -17,7 +17,7 @@ public class ListBooksSortedByAuthor : LibraryAction
 
     public override void Execute(ILibrary library)
     {
-        var books = library.GetBooks().OrderBy(book => book.Author).ToList();
+        var books = library.GetBooks().OrderBy(book => book.Title).ToList();
 
         _libraryUserInteraction.ClearScreen();
         _libraryUserInteraction.PrintBooks(books);
