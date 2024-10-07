@@ -1,5 +1,4 @@
-﻿using TheEnchantedLibrary;
-using TheEnchantedLibrary.Actions;
+﻿using TheEnchantedLibrary.Actions;
 using TheEnchantedLibrary.Helpers;
 using TheEnchantedLibrary.Models;
 using TheEnchantedLibrary.Services;
@@ -9,7 +8,10 @@ var userInteraction = new LibraryConsoleUserInteraction();
 
 var actions = new Dictionary<char, LibraryAction>() {
     {ActionKey.ADD_BOOK, new AddBook(userInteraction)},
-    {ActionKey.LIST_BOOKS, new ListBooks(userInteraction)},
+    {ActionKey.LIST_BOOKS, new ListBooks(userInteraction, new Dictionary<char, LibraryAction>
+    {
+        { SortKey.BY_AUTHOR, new ListBooksSortedByAuthor(userInteraction) }
+    })},
     {ActionKey.REMOVE_BOOK, new RemoveBook(userInteraction)},
     {ActionKey.SEARCH, new Search(userInteraction)},
     {ActionKey.EXIT_APP, new ExitApp(userInteraction)}

@@ -10,14 +10,6 @@ public class LibraryConsoleUserInteraction : ILibraryUserInteraction
         Console.WriteLine(message);
     }
 
-    public char GetUserChoice(string prompt)
-    {
-        Console.Write(prompt);
-        var input = char.ToUpper(Console.ReadKey().KeyChar);
-        Console.WriteLine(Environment.NewLine);
-        return input;
-    }
-
     public string ReadInput(string prompt)
     {
         string? input;
@@ -40,15 +32,12 @@ public class LibraryConsoleUserInteraction : ILibraryUserInteraction
         {
             PrintBook(book);
         }
-        Console.Write(Environment.NewLine + "Press any key to continue.");
-        WaitForUser();
     }
 
     public void PrintSingle(Book book)
     {
         PrintTableHeader();
         PrintBook(book);
-        WaitForUser();
     }
 
     private void PrintTableHeader()
@@ -60,6 +49,20 @@ public class LibraryConsoleUserInteraction : ILibraryUserInteraction
     private void PrintBook(Book book)
     {
         Console.WriteLine($"{book.Id,4} | {book.Title,-40} | {book.Author,-20} | {book.Spell}");
+    }
+
+    public char SortListOrContinue()
+    {
+        Console.WriteLine();
+        return GetUserChoice("Sort by [T]itle, Sort by [A]uthor, Sort by [I]d or any other key to continue:");
+    }
+
+    public char GetUserChoice(string prompt)
+    {
+        Console.Write(prompt);
+        var input = char.ToUpper(Console.ReadKey().KeyChar);
+        Console.WriteLine(Environment.NewLine);
+        return input;
     }
 
     public void ClearScreen() => Console.Clear();

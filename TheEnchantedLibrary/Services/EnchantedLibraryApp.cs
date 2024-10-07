@@ -1,4 +1,5 @@
-﻿using TheEnchantedLibrary.Actions;
+﻿using System.Runtime.CompilerServices;
+using TheEnchantedLibrary.Actions;
 using TheEnchantedLibrary.Helpers;
 using TheEnchantedLibrary.Models.Interfaces;
 using TheEnchantedLibrary.Services.Interfaces;
@@ -20,14 +21,14 @@ public class EnchantedLibraryApp
 
     public void StartApp()
     {
-        char userChoice;
+        char userChoice = ' ';
         _libraryUserInteraction.PrintMessage("Welcome to the Enchanted Library");
         _libraryUserInteraction.PrintMessage("Press any key to begin");
         _libraryUserInteraction.WaitForUser();
 
         do
         {
-            _libraryUserInteraction.ClearScreen();
+            _libraryUserInteraction.ClearScreen();            
             userChoice = GetUserChoice();
 
             if (_libraryActions.Actions.ContainsKey(userChoice))

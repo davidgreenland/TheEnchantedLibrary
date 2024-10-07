@@ -11,4 +11,5 @@ public interface ILibraryUserInteraction
     string ReadInput(string message);
     void ClearScreen();
     void WaitForUser();
+    char SortListOrContinue();
 }
