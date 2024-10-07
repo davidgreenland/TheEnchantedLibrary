@@ -20,7 +20,7 @@ public class RemoveBook : LibraryAction
     {
         _libraryUserInteraction.PrintMessage("Remove book.");
         var title = _libraryUserInteraction.ReadInput("Enter the title of the book to remove: ");
-        Console.WriteLine(title);
+
         try
         {
             var book = library.GetBooks().First(x => x.Title == title);

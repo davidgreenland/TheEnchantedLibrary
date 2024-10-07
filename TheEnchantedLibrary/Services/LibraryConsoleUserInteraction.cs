@@ -32,10 +32,6 @@ public class LibraryConsoleUserInteraction : ILibraryUserInteraction
         return input;
     }
 
-    public void ClearScreen() => Console.Clear();
-
-    public void WaitForUser() => Console.ReadKey();
-
     public void PrintBooks(ICollection<Book> books)
     {
         PrintTableHeader();
@@ -45,7 +41,14 @@ public class LibraryConsoleUserInteraction : ILibraryUserInteraction
             PrintBook(book);
         }
         Console.Write(Environment.NewLine + "Press any key to continue.");
-        Console.ReadKey();
+        WaitForUser();
+    }
+
+    public void PrintSingle(Book book)
+    {
+        PrintTableHeader();
+        PrintBook(book);
+        WaitForUser();
     }
 
     private void PrintTableHeader()
@@ -58,4 +61,8 @@ public class LibraryConsoleUserInteraction : ILibraryUserInteraction
     {
         Console.WriteLine($"{book.Id,4} | {book.Title,-40} | {book.Author,-20} | {book.Spell}");
     }
+
+    public void ClearScreen() => Console.Clear();
+
+    public void WaitForUser() => Console.ReadKey();
 }
