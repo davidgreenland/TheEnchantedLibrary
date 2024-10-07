@@ -5,7 +5,6 @@ namespace TheEnchantedLibrary.Actions;
 
 public class RemoveBook : LibraryAction
 {
-
     public override string Message { get; } = "[R]emove a book";
 
     private readonly ILibraryUserInteraction _libraryUserInteraction;
@@ -25,9 +24,7 @@ public class RemoveBook : LibraryAction
         {
             var book = library.GetBooks().First(x => x.Title == title);
             library.RemoveBook(book);
-            _libraryUserInteraction.PrintMessage("");
-            _libraryUserInteraction.PrintMessage($"{title} removed.");
-            _libraryUserInteraction.PrintMessage("");
+            _libraryUserInteraction.PrintMessage(Environment.NewLine + $"{title} removed." + Environment.NewLine);
         }
         catch (InvalidOperationException)
         {

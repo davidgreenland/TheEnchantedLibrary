@@ -5,13 +5,11 @@ namespace TheEnchantedLibrary.Actions;
 
 public class Search : LibraryAction
 {
-    public override string Message { get; } = "[S]earch for book.";
-
     private readonly ILibraryUserInteraction _libraryUserInteraction;
+    public override string Message { get; } = "[S]earch for book.";
 
     public Search(ILibraryUserInteraction libraryUserInteraction)
     {
-
         _libraryUserInteraction = libraryUserInteraction;
     }
 

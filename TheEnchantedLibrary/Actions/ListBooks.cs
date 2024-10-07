@@ -9,7 +9,6 @@ public class ListBooks : LibraryAction
     private readonly Dictionary<char, LibraryAction> _secondaryActions;
     public override string Message { get; } = "[L]ist all books.";
 
-
     public ListBooks(ILibraryUserInteraction libraryUserInteraction, Dictionary<char, LibraryAction> secondaryActions)
     {
         _libraryUserInteraction = libraryUserInteraction;

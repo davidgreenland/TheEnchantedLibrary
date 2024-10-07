@@ -5,13 +5,11 @@ namespace TheEnchantedLibrary.Actions;
 
 public class ListBooksSortedById : LibraryAction
 {
-    public override string Message { get; } = "[L]ist all books.";
-
     private readonly ILibraryUserInteraction _libraryUserInteraction;
+    public override string Message { get; } = "[L]ist all books.";
 
     public ListBooksSortedById(ILibraryUserInteraction libraryUserInteraction)
     {
-
         _libraryUserInteraction = libraryUserInteraction;
     }
 
