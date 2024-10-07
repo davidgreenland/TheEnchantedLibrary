@@ -1,8 +1,11 @@
-﻿namespace TheEnchantedLibrary.Models;
+﻿using TheEnchantedLibrary.Models.Interfaces;
+using TheEnchantedLibrary.Services.Interfaces;
+
+namespace TheEnchantedLibrary.Actions;
 
 public class ExitApp : LibraryAction
 {
-    public override string Message { get; } = "E[x]it application" + Environment.NewLine;
+    public override string Message { get; } = "E[x]it application";
 
     private readonly ILibraryUserInteraction _libraryUserInteraction;
 
@@ -14,6 +17,7 @@ public class ExitApp : LibraryAction
 
     public override void Execute(ILibrary library)
     {
-        _libraryUserInteraction.PrintMessage("Goodbye.");
+        _libraryUserInteraction.PrintMessage("Goodbye :)");
+        _libraryUserInteraction.WaitForUser();
     }
 }

@@ -1,18 +1,13 @@
-﻿namespace TheEnchantedLibrary.Models;
+﻿using TheEnchantedLibrary.Models;
+using TheEnchantedLibrary.Services.Interfaces;
+
+namespace TheEnchantedLibrary.Services;
 
 public class LibraryConsoleUserInteraction : ILibraryUserInteraction
 {
     public void PrintMessage(string message)
     {
         Console.WriteLine(message);
-    }
-
-    public char GetUserChoice(string prompt)
-    {
-        Console.Write(prompt);
-        var input = Char.ToUpper(Console.ReadKey().KeyChar);
-        Console.WriteLine(Environment.NewLine);
-        return input;
     }
 
     public string ReadInput(string prompt)
@@ -29,20 +24,21 @@ public class LibraryConsoleUserInteraction : ILibraryUserInteraction
         return input;
     }
 
-    public void ClearScreen() => Console.Clear();
-
-    public void WaitForUser() => Console.ReadKey();
-
     public void PrintBooks(ICollection<Book> books)
     {
-        Console.WriteLine($"Here is a list of the books in the library");
         PrintTableHeader();
 
         foreach (var book in books)
         {
             PrintBook(book);
         }
-        Console.WriteLine();
+    }
+
+    public void PrintSingle(Book book)
+    {
+        PrintTableHeader();
+        PrintBook(book);
+        WaitForUser();
     }
 
     private void PrintTableHeader()
@@ -55,4 +51,22 @@ public class LibraryConsoleUserInteraction : ILibraryUserInteraction
     {
         Console.WriteLine($"{book.Id,4} | {book.Title,-40} | {book.Author,-20} | {book.Spell}");
     }
+
+    public char SortListOrContinue()
+    {
+        Console.WriteLine();
+        return GetUserChoice("Sort by [T]itle, Sort by [A]uthor, Sort by [I]d or any other key to continue:");
+    }
+
+    public char GetUserChoice(string prompt)
+    {
+        Console.Write(prompt);
+        var input = char.ToUpper(Console.ReadKey().KeyChar);
+        Console.WriteLine(Environment.NewLine);
+        return input;
+    }
+
+    public void ClearScreen() => Console.Clear();
+
+    public void WaitForUser() => Console.ReadKey();
 }

@@ -1,6 +1,7 @@
-﻿using TheEnchantedLibrary.Models;
+﻿using TheEnchantedLibrary.Actions.Interfaces;
+using TheEnchantedLibrary.Models.Interfaces;
 
-namespace TheEnchantedLibrary;
+namespace TheEnchantedLibrary.Actions;
 
 public abstract class LibraryAction : ILibraryAction
 {
