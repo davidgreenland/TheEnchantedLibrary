@@ -7,8 +7,9 @@ public class Book
     public string Author { get; private set; }
     public string Spell {  get; private set; }
 
-    public Book(string title, string author, string spell)
+    public Book(int id, string title, string author, string spell)
     {
+        Id = id;
         Title = title;
         Author = author;
         Spell = spell;      

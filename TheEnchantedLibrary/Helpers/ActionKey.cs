@@ -1,0 +1,10 @@
+﻿namespace TheEnchantedLibrary.Helpers;
+
+public static class ActionKey
+{
+    public const char EXIT_APP = 'X';
+    public const char ADD_BOOK = 'A';
+    public const char REMOVE_BOOK = 'R';
+    public const char SEARCH = 'S';
+    public const char LIST_BOOKS = 'L';
+}
