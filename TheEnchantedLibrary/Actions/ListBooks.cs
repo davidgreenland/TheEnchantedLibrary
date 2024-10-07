@@ -18,6 +18,14 @@ public class ListBooks : LibraryAction
     public override void Execute(ILibrary library)
     {
         var books = library.GetBooks();
+
+        if (books.Count == 0)
+        {
+            _libraryUserInteraction.PrintMessage("The library is currently empty.");
+            _libraryUserInteraction.WaitForUser();
+            return;
+        }
+
         char userChoice;
 
         _libraryUserInteraction.ClearScreen();

@@ -1,5 +1,4 @@
-﻿using TheEnchantedLibrary.Models;
-using TheEnchantedLibrary.Models.Interfaces;
+﻿using TheEnchantedLibrary.Models.Interfaces;
 
 namespace TheEnchantedLibrary.Actions.Interfaces;
 

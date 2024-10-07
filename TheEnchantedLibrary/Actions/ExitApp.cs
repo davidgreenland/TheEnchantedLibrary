@@ -5,7 +5,7 @@ namespace TheEnchantedLibrary.Actions;
 
 public class ExitApp : LibraryAction
 {
-    public override string Message { get; } = "E[x]it application" + Environment.NewLine;
+    public override string Message { get; } = "E[x]it application";
 
     private readonly ILibraryUserInteraction _libraryUserInteraction;
 

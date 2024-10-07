@@ -15,18 +15,24 @@ public class Search : LibraryAction
 
     public override void Execute(ILibrary library)
     {
-        _libraryUserInteraction.PrintMessage("Remove book.");
+        if (library.GetBooks().Count == 0)
+        {
+            _libraryUserInteraction.PrintMessage("The library is currently empty.");
+            _libraryUserInteraction.WaitForUser();
+            return;
+        } 
         var searchTerm = _libraryUserInteraction.ReadInput("Search for title: ");
 
-        try
-        {
-            var book = library.GetBooks().First(x => x.Title == searchTerm);
-            _libraryUserInteraction.PrintSingle(book);
-        }
-        catch (InvalidOperationException)
+        var book = library.GetBooks().FirstOrDefault(x => x.Title == searchTerm);
+
+        if (book == null)
         {
             _libraryUserInteraction.PrintMessage("Book not found");
             _libraryUserInteraction.WaitForUser();
+        }
+        else
+        {
+            _libraryUserInteraction.PrintSingle(book);
         }
     }
 }

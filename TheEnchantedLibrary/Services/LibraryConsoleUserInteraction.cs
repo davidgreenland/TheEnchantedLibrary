@@ -38,6 +38,7 @@ public class LibraryConsoleUserInteraction : ILibraryUserInteraction
     {
         PrintTableHeader();
         PrintBook(book);
+        WaitForUser();
     }
 
     private void PrintTableHeader()

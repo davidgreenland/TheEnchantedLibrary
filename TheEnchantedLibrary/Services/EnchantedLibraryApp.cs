@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using TheEnchantedLibrary.Actions;
+﻿using TheEnchantedLibrary.Actions;
 using TheEnchantedLibrary.Helpers;
 using TheEnchantedLibrary.Models.Interfaces;
 using TheEnchantedLibrary.Services.Interfaces;
@@ -9,12 +8,12 @@ namespace TheEnchantedLibrary.Services;
 public class EnchantedLibraryApp
 {
     private readonly ILibrary _library;
-    private readonly LibraryActions _libraryActions;
+    private readonly Dictionary<char, LibraryAction> _libraryActions;
     private readonly ILibraryUserInteraction _libraryUserInteraction;
 
-    public EnchantedLibraryApp(LibraryActions actions, ILibraryUserInteraction libraryUserInteraction, ILibrary library)
+    public EnchantedLibraryApp(Dictionary<char, LibraryAction> libraryActions, ILibraryUserInteraction libraryUserInteraction, ILibrary library)
     {
-        _libraryActions = actions;
+        _libraryActions = libraryActions;
         _libraryUserInteraction = libraryUserInteraction;
         _library = library;
     }
@@ -31,10 +30,10 @@ public class EnchantedLibraryApp
             _libraryUserInteraction.ClearScreen();            
             userChoice = GetUserChoice();
 
-            if (_libraryActions.Actions.ContainsKey(userChoice))
+            if (_libraryActions.ContainsKey(userChoice))
             {
                 _libraryUserInteraction.ClearScreen();
-                _libraryActions.UseAction(userChoice, _library);
+                _libraryActions[userChoice].Execute(_library);
             }
         }
         while (userChoice != ActionKey.EXIT_APP);
@@ -49,7 +48,7 @@ public class EnchantedLibraryApp
 
     private void ShowOptions()
     {
-        foreach (var item in _libraryActions.Actions)
+        foreach (var item in _libraryActions)
         {
             _libraryUserInteraction.PrintMessage(item.Value.Message);
         }
