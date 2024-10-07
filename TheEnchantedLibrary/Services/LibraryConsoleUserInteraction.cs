@@ -1,4 +1,7 @@
-﻿namespace TheEnchantedLibrary.Models;
+﻿using TheEnchantedLibrary.Models;
+using TheEnchantedLibrary.Services.Interfaces;
+
+namespace TheEnchantedLibrary.Services;
 
 public class LibraryConsoleUserInteraction : ILibraryUserInteraction
 {
@@ -10,7 +13,7 @@ public class LibraryConsoleUserInteraction : ILibraryUserInteraction
     public char GetUserChoice(string prompt)
     {
         Console.Write(prompt);
-        var input = Char.ToUpper(Console.ReadKey().KeyChar);
+        var input = char.ToUpper(Console.ReadKey().KeyChar);
         Console.WriteLine(Environment.NewLine);
         return input;
     }

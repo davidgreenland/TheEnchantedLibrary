@@ -1,7 +1,9 @@
-﻿using TheEnchantedLibrary.Helpers;
-using TheEnchantedLibrary.Models;
+﻿using TheEnchantedLibrary.Actions;
+using TheEnchantedLibrary.Helpers;
+using TheEnchantedLibrary.Models.Interfaces;
+using TheEnchantedLibrary.Services.Interfaces;
 
-namespace TheEnchantedLibrary;
+namespace TheEnchantedLibrary.Services;
 
 public class EnchantedLibraryApp
 {
@@ -28,12 +30,12 @@ public class EnchantedLibraryApp
             _libraryUserInteraction.ClearScreen();
             userChoice = GetUserChoice();
 
-            if (_libraryActions.Actions.ContainsKey(userChoice)) 
+            if (_libraryActions.Actions.ContainsKey(userChoice))
             {
                 _libraryUserInteraction.ClearScreen();
                 _libraryActions.UseAction(userChoice, _library);
             }
-        } 
+        }
         while (userChoice != ActionKey.EXIT_APP);
     }
 

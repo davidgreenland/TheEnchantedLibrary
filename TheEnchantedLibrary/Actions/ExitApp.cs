@@ -1,12 +1,15 @@
-﻿namespace TheEnchantedLibrary.Models;
+﻿using TheEnchantedLibrary.Models.Interfaces;
+using TheEnchantedLibrary.Services.Interfaces;
 
-public class Search: LibraryAction
+namespace TheEnchantedLibrary.Actions;
+
+public class ExitApp : LibraryAction
 {
     public override string Message { get; } = "E[x]it application" + Environment.NewLine;
 
     private readonly ILibraryUserInteraction _libraryUserInteraction;
 
-    public Search(ILibraryUserInteraction libraryUserInteraction)
+    public ExitApp(ILibraryUserInteraction libraryUserInteraction)
     {
 
         _libraryUserInteraction = libraryUserInteraction;
@@ -14,6 +17,6 @@ public class Search: LibraryAction
 
     public override void Execute(ILibrary library)
     {
-        _libraryUserInteraction.PrintMessage("|| Goodbye. :-) ||");
+        _libraryUserInteraction.PrintMessage("Goodbye :)");
     }
 }

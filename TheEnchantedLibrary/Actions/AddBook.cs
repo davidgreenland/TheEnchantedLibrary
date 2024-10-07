@@ -1,4 +1,7 @@
-﻿namespace TheEnchantedLibrary.Models;
+﻿using TheEnchantedLibrary.Models.Interfaces;
+using TheEnchantedLibrary.Services.Interfaces;
+
+namespace TheEnchantedLibrary.Actions;
 
 public class AddBook : LibraryAction
 {
@@ -19,7 +22,7 @@ public class AddBook : LibraryAction
         var author = _libraryUserInteraction.ReadInput("Enter the author: ");
         var spell = _libraryUserInteraction.ReadInput("Add a magic spell: ");
         var newBook = library.AddBook(name, author, spell);
-        _libraryUserInteraction.PrintMessage(Environment.NewLine + $"{newBook} added");
+        _libraryUserInteraction.PrintMessage(Environment.NewLine + $"{newBook.Title} added");
         _libraryUserInteraction.WaitForUser();
     }
 }

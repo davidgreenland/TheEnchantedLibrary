@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using TheEnchantedLibrary.Models;
 
-namespace TheEnchantedLibrary;
+namespace TheEnchantedLibrary.Models.Interfaces;
 
 public interface ILibrary
 {

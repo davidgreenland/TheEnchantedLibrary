@@ -1,4 +1,6 @@
-﻿namespace TheEnchantedLibrary.Models;
+﻿using TheEnchantedLibrary.Models.Interfaces;
+
+namespace TheEnchantedLibrary.Models;
 
 public class Library : ILibrary
 {
